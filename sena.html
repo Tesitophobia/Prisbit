@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="global.css">
+    <title>SENA</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Outfit;
+        }
+
+        button{
+            font-family: Outfit;
+        }
+
+        section {
+            padding: 2rem 1rem;
+            color: white;
+        }
+
+        .recursos-section {
+            display: flex;
+            flex-direction: column;
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            margin-bottom: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            background: white;
+        }
+
+        .recursos-column-left {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            background: #a259ff;
+            padding: 1rem;
+            justify-content: space-around;
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+        }
+
+        .recursos-column-left button {
+            background: #7b2cbf;
+            border: none;
+            border-radius: 1rem;
+            padding: 0.5rem;
+            color: white;
+            font-weight: bold;
+            font-size: 0.8rem;
+            cursor: pointer;
+            text-align: center;
+            flex: 1;
+        }
+
+        .recursos-column-right {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            position: relative;
+        }
+
+        .carousel {
+            width: 100%;
+            max-width: 600px;
+            overflow: hidden;
+            border-radius: 1rem;
+            position: relative;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            flex-shrink: 0;
+        }
+
+        .carousel-slide img {
+            width: 32%;
+            height: auto;
+            display: block;
+            border-radius: 1rem;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(106, 31, 191, 0.7);
+            color: white;
+            border: none;
+            padding: 20px 31px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 10;
+            border-radius: 50%;
+        }
+
+        .carousel-button.prev {
+            left: 1rem;
+        }
+
+        .carousel-button.next {
+            right: 1rem;
+        }
+
+        #Programas {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url('assets/Programas/7679a24419a82943e610a12b5c11b3e8\ 1.png');
+            background-size: cover;
+            background-position: center;
+            padding: 2rem;
+        }
+
+        .Programas {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .Programas div {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .Programas img {
+            width: 80px;
+            height: 80px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .Programas img:hover {
+            transform: scale(1.1);
+        }
+
+        @media (min-width: 768px) {
+            .recursos-section {
+                flex-direction: row;
+            }
+
+            .recursos-column-left {
+                width: 250px;
+                flex-direction: column;
+                border-top-right-radius: 0;
+                border-bottom-left-radius: 2rem;
+            }
+
+            .recursos-column-left button {
+                padding: 1rem;
+                font-size: 1rem;
+            }
+
+            .recursos-column-right {
+                flex: 1;
+            }
+
+            section {
+                padding: 4rem 1rem;
+            }
+
+            .Programas img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">
+            <img class="Logo" src="assets/ProvisionalLogo.png" alt="Logo Zira" />
+        </a>
+        <span class="navs">
+            <h2>CDA - SENA CHIA</h2>
+        </span>
+        <div class="div">
+            <div class="menu-icon" id="menuIcon">
+                <img src="assets/menu.png" alt="Menú" />
+            </div>
+        </div>
+    </nav>
+
+    <div class="menu-container">
+        <div class="menu-content" id="menuContent">
+            <button class="menu-close" id="menuClose">×</button>
+            <span>
+                <ul>
+                    <a href="#services-section">Programas</a>
+                    <li><a href="Produccion-Multimedia.html">Producción Multimedia</a></li>
+                    <li><a href="Animacion3D.html">Animación 3D</a></li>
+                    <li><a href="Fotografia.html">Fotografía Y Procesos Digitales</a></li>
+                    <li><a href="ADSO.html">Analisis y Desarrollo de Sistemas de Información</a></li>
+                    <li><a href="Sistemas.html">Sistemas</a></li>
+                    <li><a href="Gestion-Redes.html">Gestión de Redes de Datos</a></li>
+                    <li><a href="Programacion de Software.html">Programación de Software</a></li>
+                </ul>
+                <ul>
+                    <a href="Instructores.html">Instructores</a>
+                    <li><a href="Instructores.html">Producción Multimedia</a></li>
+                    <li><a href="Instructores.html">Animación 3D</a></li>
+                    <li><a href="Instructores.html">Fotografía Y Procesos Digitales</a></li>
+                    <li><a href="Instructores.html">Analisis y Desarrollo de Sistemas de Información</a></li>
+                    <li><a href="Instructores.html">Sistemas</a></li>
+                    <li><a href="Instructores.html">Gestión de Redes de Datos</a></li>
+                    <li><a href="Instructores.html">Programación de Software</a></li>
+                </ul>
+                <ul>
+                    <a href="Servicios.html">Servicios CDA - SENA</a>
+                    <li><a href="#">Fondo Emprender</a></li>
+                    <li><a href="#">AgroSena</a></li>
+                    <li><a href="#">Contrato de Aprendizaje</a></li>
+                </ul>
+                <ul>
+                    <a href="Portfolio.html">Sobre Nosotros</a>
+                    <li><a href="Portfolio.html">Desarrolladores</a></li>
+                </ul>
+            </span>
+        </div>
+    </div>
+
+    <section id="ambientes">
+        <div class="recursos-section">
+            <div class="recursos-column-left">
+                <button onclick="mostrarCarrusel('ambientes', 0)">Ambientes<br>de Formación</button>
+                <button onclick="mostrarCarrusel('ambientes', 1)">Instalaciones<br>del SENA</button>
+                <button onclick="mostrarCarrusel('ambientes', 2)">Industrias<br>Creativas</button>
+            </div>
+            <div class="recursos-column-right">
+                <div class="carousel">
+                    <button class="carousel-button prev" onclick="cambiarSlide('ambientes', -1)">&#10094;</button>
+                    <div class="carousel-track" id="carousel-track-ambientes"></div>
+                    <button class="carousel-button next" onclick="cambiarSlide('ambientes', 1)">&#10095;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Programas">
+        <div class="Programas">
+            <h3>Programas que puedes aprender a manejar</h3>
+            <div>
+                <img src="assets/Programas/46a76c802176eb17b04e12108de7e7e0f3736dc6-1024x1024 1.png" alt="Figma">
+                <img src="assets/Programas/a6a4bfb514e96ecf6fdbb6cce692cc48 1.png" alt="Maya">
+                <img src="assets/Programas/Adobe_After_Effects_CC_icon.svg 1.png" alt="After Effects">
+                <img src="assets/Programas/Adobe_Photoshop_CC_icon.svg 1.png" alt="Photoshop">
+                <img src="assets/Programas/Adobe_Premiere_Pro_CC_icon.svg 1.png" alt="Premiere Pro">
+                <img src="assets/Programas/Illustrator-Logo 1.png" alt="Illustrator">
+                <img src="assets/Programas/Visual_Studio_Code_1.35_icon.svg 1.png" alt="Visual Studio Code">
+            </div>
+        </div>
+    </section>
+
+    <section id="equipos">
+        <div class="recursos-section">
+            <div class="recursos-column-left">
+                <button onclick="mostrarCarrusel('equipos', 0)">Computadores</button>
+                <button onclick="mostrarCarrusel('equipos', 1)">Cámaras</button>
+                <button onclick="mostrarCarrusel('equipos', 2)">Industrias<br>Creativas</button>
+            </div>
+            <div class="recursos-column-right">
+                <div class="carousel">
+                    <button class="carousel-button prev" onclick="cambiarSlide('equipos', -1)">&#10094;</button>
+                    <div class="carousel-track" id="carousel-track-equipos"></div>
+                    <button class="carousel-button next" onclick="cambiarSlide('equipos', 1)">&#10095;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <main>
+            <ul>
+                <div>FAQ</div>
+                <li><a href="">Preguntas frecuentes</a></li>
+                <li><a href="">Soporte técnico</a></li>
+                <li><a href="">Contacto</a></li>
+                <li><a href="">Ayuda</a></li>
+            </ul>
+            <ul>
+                <div>Programas</div>
+                <li><a href="#">Producción Multimedia</a></li>
+                <li><a href="#">Animación 3D</a></li>
+                <li><a href="#">Fotografía Y Procesos Digitales</a></li>
+                <li><a href="#">Analisis y Desarrollo de Sistemas de Información</a></li>
+                <li><a href="#">Sistemas</a></li>
+                <li><a href="#">Gestión de Redes de Datos</a></li>
+                <li><a href="#">Programación de Software</a></li>
+            </ul>
+            <ul>
+                <div>ZIRA</div>
+                <li><a href="">Acerca de</a></li>
+                <li><a href="">Misión</a></li>
+                <li><a href="">Visión</a></li>
+            </ul>
+            <ul>
+                <div>Siguenos</div>
+                <ol>
+                    <li><img src="assets/CITYPNG.COMHD-White-Instagram-Round-Logo-Icon-PNG-1600x1200-1 1.svg" alt="Instagram"></li>
+                    <li><img src="assets/tiktok-round-white-icon 1.svg" alt="TikTok"></li>
+                    <li><img src="assets/Behance.svg" alt="Behance"></li>
+                    <li><img src="assets/youtube-app-white-icon 1.svg" alt="Youtube"></li>
+                </ol>
+                <div class="instagram">
+                    <picture class="story"><img src="assets/icon.jpg" alt=""></picture>
+                    <div class="seg">
+                        <div class="fol">
+                            <span>0 Publicaciones</span>
+                            <span>0 Seguidores</span>
+                            <span>0 Seguidos</span>
+                        </div>
+                        <div class="boton-seguir">
+                            <button>Seguir</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tiktok">
+                    <picture class="story-2"><img src="assets/icon.jpg" alt=""></picture>
+                    <div class="seg">
+                        <div class="fol">
+                            <span>0 Publicaciones</span>
+                            <span>0 Seguidores</span>
+                            <span>0 Seguidos</span>
+                        </div>
+                        <div class="boton-seguir">
+                            <button>Seguir</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="behance"></div>
+                <div class="youtube"></div>
+            </ul>
+        </main>
+        <hr>
+        <div class="sponsors">
+            <picture><img src="assets/ProvisionalLogo.png" alt=""></picture>
+            <picture><img src="assets/picture103 3.svg" alt=""></picture>
+        </div>
+    </footer>
+
+    <script>
+        const carouseles = {
+            ambientes: [
+                ["assets/ambientes/Ambientes1.jpg", "assets/ambientes/Ambientes2.jpg", "assets/ambientes/Ambientes3.jpg", "assets/ambientes/Ambientes4.jpg", "assets/ambientes/Ambientes5.jpg"],
+                ["assets/ambientes/Instalaciones1.jpg", "assets/ambientes/Instalaciones2.jpg", "assets/ambientes/Instalaciones3.jpg", "assets/ambientes/Instalaciones4.jpg", "assets/ambientes/Instalaciones5.jpg"],
+                ["assets/ambientes/Creativas1.jpg", "assets/ambientes/Creativas2.jpg", "assets/ambientes/Creativas3.jpg", "assets/ambientes/Creativas4.jpg", "assets/ambientes/Creativas5.jpg"]
+            ],
+            equipos: [
+                ["assets/equipos/Computadores1.jpg", "assets/equipos/Computadores2.jpg", "assets/equipos/Computadores3.jpg", "assets/equipos/Computadores4.jpg", "assets/equipos/Computadores5.jpg"],
+                ["assets/equipos/Camaras1.jpg", "assets/equipos/Camaras2.jpg", "assets/equipos/Camaras3.jpg", "assets/equipos/Camaras4.jpg", "assets/equipos/Camaras5.jpg"],
+                ["assets/equipos/Industrias1.jpg", "assets/equipos/Industrias2.jpg", "assets/equipos/Industrias3.jpg", "assets/equipos/Industrias4.jpg", "assets/equipos/Industrias5.jpg"]
+            ]
+        };
+
+        const indices = { ambientes: 0, equipos: 0 };
+        let carruselesVisibles = { ambientes: 0, equipos: 0 };
+
+        function actualizarCarrusel(seccion) {
+            const track = document.getElementById(`carousel-track-${seccion}`);
+            const lista = carouseles[seccion][carruselesVisibles[seccion]];
+            track.innerHTML = lista.map(src => `<div class='carousel-slide'><img src='${src}' alt='Slide'></div>`).join("");
+            track.style.transform = `translateX(-${indices[seccion] * 100}%)`;
+        }
+
+        function cambiarSlide(seccion, direccion) {
+            const total = carouseles[seccion][carruselesVisibles[seccion]].length;
+            indices[seccion] = (indices[seccion] + direccion + total) % total;
+            const track = document.getElementById(`carousel-track-${seccion}`);
+            track.style.transform = `translateX(-${indices[seccion] * 100}%)`;
+        }
+
+        function mostrarCarrusel(seccion, cual) {
+            carruselesVisibles[seccion] = cual;
+            indices[seccion] = 0;
+            actualizarCarrusel(seccion);
+        }
+
+        window.onload = () => {
+            actualizarCarrusel("ambientes");
+            actualizarCarrusel("equipos");
+        };
+
+        // Enhanced mobile menu functionality
+        const menuIcon = document.getElementById('menuIcon');
+        const menuContent = document.getElementById('menuContent');
+        const menuClose = document.getElementById('menuClose');
+
+        function openMenu() {
+            menuContent.style.display = "block";
+            document.body.style.overflow = "hidden"; // Prevent background scrolling
+            setTimeout(() => {
+                menuContent.classList.add('show');
+            }, 10);
+        }
+
+        function closeMenu() {
+            menuContent.classList.remove('show');
+            document.body.style.overflow = "auto"; // Restore scrolling
+            setTimeout(() => {
+                menuContent.style.display = "none";
+            }, 400);
+        }
+
+        menuIcon.addEventListener('click', openMenu);
+        menuClose.addEventListener('click', closeMenu);
+
+        // Close menu when clicking on a link
+        const menuLinks = menuContent.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // Close menu with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && menuContent.classList.contains('show')) {
+                closeMenu();
+            }
+        });
+    </script>
+</body>
+</html>
+
