@@ -37,7 +37,7 @@
     "ne t ni"
     "a a a"
     "na l b";
-  grid-template-columns: 40em 40em 40em;
+  grid-template-columns: 43em 38em 39em;
   grid-template-rows: auto auto auto;
   justify-content: center;
   align-items: center;
@@ -59,7 +59,7 @@
 
 .sena {
   width: 120px;
-  margin-left: 40%;
+  margin-left: 38.5%;
 }
 .Principal {
   grid-area: b;
