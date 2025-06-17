@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="global.css">
+    <title>Programas</title>
+</head>
+<body>
+    <nav>
+    <a href="/">
+        <img class="Logo" src="assets/ProvisionalLogo.svg" alt="Logo Zira" />
+    </a>
+    <span class="navs">
+      <h2>CDA - SENA CHIA</h2>
+    </span>
+    <div class="div">
+      <div class="menu-icon" id="menuIcon">
+        <img src="assets/menu.png" alt="Menú" />
+      </div>
+    </div>
+  </nav>
+
+  <section class="banner" id="banner">
+    <div class="Program">
+    <h1>Producción Multimedia</h1>
+    </div>
+    <a href="#sc2">
+      <button id="scroll-button">
+        <img src="assets/arrow-down.svg" alt="Bajar" />
+      </button>
+    </a>
+  </section>
+  
+<section id="sc2">
+
+  <div class="sc2-left">
+    <h2>¿Qué es?</h2>
+    <p>
+      El programa Tecnólogo en Producción de Multimedia fue creado con el objetivo de proporcionar al sector productivo nacional, especialmente a la industria de la comunicación y áreas relacionadas, personal altamente calificado que contribuya al desarrollo económico, social y tecnológico del país. Este programa ofrece formación en tecnologías y metodologías para diseñar, desarrollar e implementar proyectos multimediales, fundamental para que las empresas sean más competitivas y productivas en un entorno globalizado.
+    </p>
+    <p class="mobile-not">
+      Se destaca que en todo el país existe un potencial productivo para desarrollar proyectos multimediales, ya que estos pueden aplicarse a diversos sectores con una infraestructura tecnológica mínima. El fortalecimiento socioeconómico regional y nacional depende en gran medida de contar con un recurso humano calificado que pueda adaptarse a las demandas del sector. El SENA ofrece este programa con una formación integral que incluye aspectos sociales, tecnológicos y culturales, utilizando metodologías innovadoras y acceso a tecnologías de última generación. Se enfatiza en la importancia de formar ciudadanos críticos, solidarios y emprendedores para impulsar la productividad, competitividad, equidad y desarrollo del país.
+    </p>
+  </div>
+
+  <div class="sc2-right">
+    <button class="sc2-button">Ver Competencias</button>
+    <button class="sc2-button" style="background-color: #5e00b8;">Inscríbete ¡Aquí!</button>
+  </div>
+</section>
+
+<section id="carousel-images">
+  <div class="carousel-wrapper">
+    <button class="carousel-button" id="prevBtn">
+      <img src="assets/chevron-left.svg" alt="Atras">
+    </button>
+
+    <div class="carousel-container">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-slide"><img src="assets/carrousel-produccion/_V7A8430.JPG" alt="Imagen 1"></div>
+        <div class="carousel-slide"><img src="assets/carrousel-produccion/_V7A8430.JPG" alt="Imagen 2"></div>
+        <div class="carousel-slide"><img src="assets/carrousel-produccion/_V7A8430.JPG" alt="Imagen 3"></div>
+        <div class="carousel-slide"><img src="assets/carrousel-produccion/_V7A8430.JPG" alt="Imagen 4"></div>
+      </div>
+    </div>
+
+    <button class="carousel-button" id="nextBtn">
+      <img src="assets/chevron-right.svg" alt="Adelante">
+    </button>
+  </div>
+</section>
+
+<section id="timeline"></section>
+
+<section id="double">
+ <div class="double-tabs">
+    <div class="double-tab active" onclick="toggleDouble('practicas')">Prácticas</div>
+    <div class="double-tab" onclick="toggleDouble('proyectos')">Proyectos</div>
+  </div>
+
+  <div id="double-practicas" class="double-content active double-practicas">
+    <div>
+      <img src="assets/img/practica.jpg" alt="Prácticas">
+      <h3>Prácticas</h3>
+    </div>
+    <ul>
+      <li>Experiencia en entornos reales.</li>
+      <li>Convenios con empresas del sector.</li>
+      <li>Seguimiento y acompañamiento académico.</li>
+    </ul>
+  </div>
+
+  <div id="double-proyectos" class="double-content">
+    <div class="double-carousel-container">
+      <button class="double-carousel-button double-prev" onclick="moveDoubleSlide(-1)">&#10094;</button>
+      <div class="double-carousel-track" id="doubleCarouselTrack">
+        <div class="double-carousel-slide">
+          <img src="assets/img/proyecto1.jpg" alt="Proyecto 1">
+        </div>
+        <div class="double-carousel-slide">
+          <img src="assets/img/proyecto2.jpg" alt="Proyecto 2">
+        </div>
+        <div class="double-carousel-slide">
+          <img src="assets/img/proyecto3.jpg" alt="Proyecto 3">
+        </div>
+      </div>
+      <button class="double-carousel-button double-next" onclick="moveDoubleSlide(1)">&#10095;</button>
+    </div>
+  </div>
+
+  <script>
+  const doubleTabs = document.querySelectorAll('.double-tab');
+    const doubleContents = document.querySelectorAll('.double-content');
+
+    function toggleDouble(section) {
+      doubleTabs.forEach(tab => tab.classList.remove('active'));
+      doubleContents.forEach(content => content.classList.remove('active'));
+      
+      document.querySelector(`.double-tab[onclick*="${section}"]`).classList.add('active');
+      document.getElementById(`double-${section}`).classList.add('active');
+    }
+
+    let doubleIndex = 0;
+    function moveDoubleSlide(step) {
+      const track = document.getElementById('doubleCarouselTrack');
+      const slides = document.querySelectorAll('.double-carousel-slide');
+      const slideWidth = slides[0].offsetWidth + 32; // slide + margin
+
+      doubleIndex += step;
+      const maxIndex = slides.length - 1;
+      if (doubleIndex < 0) doubleIndex = 0;
+      if (doubleIndex > maxIndex - 2) doubleIndex = maxIndex - 2;
+
+      track.style.transform = `translateX(-${doubleIndex * slideWidth}px)`;
+    }
+</script>
+</section>
+
+
+  <script>
+  const track = document.getElementById('carouselTrack');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    const slideWidth = track.children[0].offsetWidth + 24;
+    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateCarousel();
+    }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (currentIndex < track.children.length - 1) {
+      currentIndex++;
+      updateCarousel();
+    }
+  });
+
+  window.addEventListener('resize', updateCarousel);
+</script>
+
+</section>
+
+<section id="uniforme">
+  <style>
+    #uniforme {
+      padding: 4rem 1rem;
+      color: white;
+      text-align: center;
+    }
+
+    .uniforme-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
+    .uniforme-gallery {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .uniforme-viewer {
+      position: relative;
+      width: 300px;
+      border-radius: 1rem;
+      overflow: hidden;
+      background: #111;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .uniforme-viewer img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .uniforme-viewer:hover img {
+      cursor: grab;
+    }
+
+    .indicator {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: #aaa;
+      border-radius: 50%;
+      transition: background 0.3s;
+    }
+
+    .dot.active {
+      background: #a855f7;
+    }
+  </style>
+
+  <div class="uniforme-title">Dotación (Uniforme)</div>
+  <div class="uniforme-gallery">
+    <div class="uniforme-viewer" onwheel="scrollUniforme(this, 'chaqueta')" ontouchstart="startTouch(event, 'chaqueta')" ontouchmove="moveTouch(event, 'chaqueta')">
+      <img id="chaqueta-img" src="assets/img/chaqueta/1.jpg" alt="Chaqueta">
+      <div class="indicator" id="chaqueta-indicator"></div>
+    </div>
+    <div class="uniforme-viewer" onwheel="scrollUniforme(this, 'camiseta')" ontouchstart="startTouch(event, 'camiseta')" ontouchmove="moveTouch(event, 'camiseta')">
+      <img id="camiseta-img" src="assets/img/camiseta/1.jpg" alt="Camiseta">
+      <div class="indicator" id="camiseta-indicator"></div>
+    </div>
+  </div>
+
+  <script>
+    let imgIndices = {
+      chaqueta: 1,
+      camiseta: 1
+    };
+
+    function scrollUniforme(container, tipo) {
+  event.preventDefault(); // ← esto detiene el scroll de la página
+  const dir = event.deltaY > 0 ? 1 : -1;
+  updateUniformeImage(tipo, dir);
+}
+
+
+    let touchStartX = {};
+    function startTouch(e, tipo) {
+      touchStartX[tipo] = e.touches[0].clientX;
+    }
+
+    function moveTouch(e, tipo) {
+      if (!touchStartX[tipo]) return;
+      const currentX = e.touches[0].clientX;
+      const diffX = touchStartX[tipo] - currentX;
+      if (Math.abs(diffX) > 30) {
+        updateUniformeImage(tipo, diffX > 0 ? 1 : -1);
+        touchStartX[tipo] = null;
+      }
+    }
+
+    function updateUniformeImage(tipo, step) {
+      const total = 8;
+      imgIndices[tipo] += step;
+      if (imgIndices[tipo] > total) imgIndices[tipo] = 1;
+      if (imgIndices[tipo] < 1) imgIndices[tipo] = total;
+      document.getElementById(`${tipo}-img`).src = `assets/img/${tipo}/${imgIndices[tipo]}.jpg`;
+      updateIndicators(tipo, total);
+    }
+
+    function updateIndicators(tipo, total) {
+      const container = document.getElementById(`${tipo}-indicator`);
+      container.innerHTML = '';
+      for (let i = 1; i <= total; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'dot' + (i === imgIndices[tipo] ? ' active' : '');
+        container.appendChild(dot);
+      }
+    }
+
+    // Inicializar indicadores
+    updateIndicators('chaqueta', 8);
+    updateIndicators('camiseta', 8);
+  </script>
+</section>
+
+
+
+
+  <style>
+.banner {
+  display: flex;
+  align-items: center;
+  height: 75dvh;
+  background-image: url(assets/image.webp);
+  background-position: 80% 50%;
+  margin-top: 1em;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0 2rem;
+}
+
+#scroll-button {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 170px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #9037ff;
+  color: white;
+  border: none;
+  border-radius: 99999px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.Program{
+    width: 100vw;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #5400ad9f;
+}
+
+h1{
+    color: #ffffff;
+  font-size: 64px;
+  width: 45%;
+  margin-left: 3em;
+  font-weight: medium;
+  font-family: Outfit;
+}
+
+button{
+    font-family: Outfit;
+}
+
+ #sc2 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5rem;
+      padding: 2rem;
+      background-color: #0a0a0a;
+      color: white;
+      justify-content: center;
+      height: 75vh;
+    }
+
+    .sc2-left, .sc2-right {
+      background-color: #1a0033;
+      border-radius: 20px;
+      padding: 2rem;
+    }
+
+    .sc2-left {
+    flex: 1 1 300px;
+    max-width: 866px;
+    height: 100%;
+    }
+
+    .sc2-left h2 {
+      background-color: #9933ff;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 2em;
+    }
+
+    .sc2-left p {
+      margin-top: 1.5rem;
+      line-height: 1.6;
+      font-size: 1.3rem;
+    }
+
+    .sc2-right {
+      flex: 0 1 280px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      background-color: #150028;
+    }
+
+    .sc2-button {
+      padding: 1rem 2rem;
+      background-color: #9933ff;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+    }
+
+    .sc2-line {
+      width: 80%;
+      height: 4px;
+      background-color: white;
+      border-radius: 2px;
+    }
+
+    .sc2-line.small {
+      width: 70%;
+    }
+
+    /* Responsive ajustes */
+
+    @media (max-width: 768px) {
+
+        #banner {
+            height: 50vh;
+            width: 100%;
+            background-position: center;
+        }
+
+        .Program{
+            width: 100%;
+        }
+
+        h1{
+            font-size: 24px;
+
+        }
+
+      #sc2 {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .sc2-left, .sc2-right {
+        width: 100%;
+      }
+
+      .sc2-left h2 {
+        font-size: 1.5em;
+      }
+
+      .sc2-left{
+        height: 50em;
+        flex: 0 0 0;
+      }
+
+      .mobile-not {
+        display: none;
+      }
+
+      .sc2-left p{
+              font-size: 0.95rem;
+      }
+
+      .sc2-right{
+        height: 50em;
+        flex: 0 0 0;
+      }
+    }
+
+   #carousel-images {
+  background-color: #0a0a0a;
+  padding: 4rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1500px;
+}
+
+.carousel-container {
+  overflow: hidden;
+  flex: 1;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease;
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.carousel-slide {
+  flex: 0 0 calc(33.333% - 1rem); /* 3 por fila, menos el gap */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+/* Botones externos */
+.carousel-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+
+.carousel-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.carousel-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Posición separada */
+#prevBtn {
+  margin-right: 1rem;
+}
+
+#nextBtn {
+  margin-left: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .carousel-slide {
+    flex: 0 0 calc(50% - 1rem); /* 2 por fila */
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel-slide {
+    flex: 0 0 100%; /* 1 por fila */
+  }
+
+  .carousel-button {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+#timeline{
+    display: none;
+}
+
+#double {
+      padding: 4rem 1rem;
+      color: white;
+      text-align: center;
+    }
+
+    .double-tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .double-tab {
+      padding: 0.75rem 2rem;
+      border-radius: 1rem 1rem 0 0;
+      margin: 0 0.25rem;
+      cursor: pointer;
+      background-color: #6d28d9;
+      color: white;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .double-tab.active {
+      background-color: white;
+      color: #6d28d9;
+    }
+
+    .double-content {
+      display: none;
+    }
+
+    .double-content.active {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .double-practicas img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .double-practicas ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .double-practicas li::before {
+      content: "• ";
+      color: #a855f7;
+      font-weight: bold;
+    }
+
+    .double-carousel-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .double-carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .double-carousel-slide {
+      min-width: 300px;
+      margin: 0 1rem;
+      flex: 0 0 auto;
+    }
+
+    .double-carousel-slide img {
+      border-radius: 1rem;
+      width: 100%;
+      height: auto;
+    }
+
+    .double-carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #6d28d9;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      z-index: 2;
+    }
+
+    .double-carousel-button.double-prev {
+      left: -50px;
+    }
+
+    .double-carousel-button.double-next {
+      right: -50px;
+    }
+
+    @media (max-width: 768px) {
+      .double-carousel-slide {
+        min-width: 80%;
+      }
+      .double-carousel-button.double-prev {
+        left: 10px;
+      }
+      .double-carousel-button.double-next {
+        right: 10px;
+      }
+    }
+
+    .uniforme-viewer {
+  overscroll-behavior: contain;
+}
+
+
+</style>
+
+
+
+<div class="menu-container">
+  <div class="menu-content" id="menuContent">
+      <button class="menu-close" id="menuClose">×</button>
+      <span>
+          <ul>
+              <a href="#services-section">Programas</a>
+              <li><a href="#">Producción Multimedia</a></li>
+              <li><a href="#">Animación 3D</a></li>
+              <li><a href="#">Fotografía Y Procesos Digitales</a></li>
+              <li><a href="#">Analisis y Desarrollo de Sistemas de Información</a></li>
+              <li><a href="#">Sistemas</a></li>
+              <li><a href="#">Gestión de Redes de Datos</a></li>
+              <li><a href="#">Programación de Software</a></li>
+          </ul>
+          <ul>
+              <a href="src/pages/instructors.astro">Instructores</a>
+              <li><a href="#">Producción Multimedia</a></li>
+              <li><a href="#">Animación 3D</a></li>
+              <li><a href="#">Fotografía Y Procesos Digitales</a></li>
+              <li><a href="#">Analisis y Desarrollo de Sistemas de Información</a></li>
+              <li><a href="#">Sistemas</a></li>
+              <li><a href="#">Gestión de Redes de Datos</a></li>
+              <li><a href="#">Programación de Software</a></li>
+          </ul>
+          <ul>
+              <a href="src/pages/servicios.astro">Servicios CDA - SENA</a>
+              <li><a href="#">Fondo Emprender</a></li>
+              <li><a href="#">AgroSena</a></li>
+              <li><a href="#">Contrato de Aprendizaje</a></li>
+          </ul>
+          <ul>
+              <a href="src/pages/portfolio.astro">Sobre Nosotros</a>
+              <li><a href="src/pages/portfolio.astro">Desarrolladores</a></li>
+          </ul>
+      </span>
+  </div>
+</div>
+
+
+
+
+<footer>
+    <main>
+        <ul>
+            <div>FAQ</div>
+            <li><a href="">Preguntas frecuentes</a></li>
+            <li><a href="">Soporte técnico</a></li>
+            <li><a href="">Contacto</a></li>
+            <li><a href="">Ayuda</a></li>
+        </ul>
+        <ul>
+            <div>Programas</div>
+            <li><a href="#">Producción Multimedia</a></li>
+            <li><a href="#">Animación 3D</a></li>
+            <li><a href="#">Fotografía Y Procesos Digitales</a></li>
+            <li><a href="#">Analisis y Desarrollo de Sistemas de Información</a></li>
+            <li><a href="#">Sistemas</a></li>
+            <li><a href="#">Gestión de Redes de Datos</a></li>
+            <li><a href="#">Programación de Software</a></li>
+        </ul>
+        <ul>
+            <div>ZIRA</div>
+            <li><a href="">Acerca de</a></li>
+            <li><a href="">Misión</a></li>
+            <li><a href="">Visión</a></li>
+        </ul>
+        <ul>
+            <div>Siguenos</div>
+            <ol>
+             <li><img src="assets/CITYPNG.COMHD-White-Instagram-Round-Logo-Icon-PNG-1600x1200-1 1.svg" alt="Instagram"></li>
+             <li><img src="assets/tiktok-round-white-icon 1.svg" alt="TikTok"></li>
+             <li><img src="assets/Behance.svg" alt="Behance"></li>
+             <li><img src="assets/youtube-app-white-icon 1.svg" alt="Youtube"></li>
+            </ol>
+            <div class="instagram">
+                <picture class="story"><img src="assets/icon.jpg" alt=""></picture>
+                <div class="seg">
+                    <div class="fol">
+                        <span>0 Publicaciones</span>
+                        <span>0 Seguidores</span>
+                        <span>0 Seguidos</span>
+                    </div>
+
+                    <div class="boton-seguir">
+                        <button>Seguir</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="tiktok">
+                <picture class="story-2"><img src="assets/icon.jpg" alt=""></picture>
+                <div class="seg">
+                    <div class="fol">
+                        <span>0 Publicaciones</span>
+                        <span>0 Seguidores</span>
+                        <span>0 Seguidos</span>
+                    </div>
+
+                    <div class="boton-seguir">
+                        <button>Seguir</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="behance"></div>
+            <div class="youtube"></div>
+        </ul>
+    </main>
+    <hr>
+
+    <div class="sponsors">
+        <picture><img src="assets/ProvisionalLogo.png" alt=""></picture>
+        <picture><img src="assets/picture103 3.svg" alt=""></picture>
+    </div>
+</footer>
+
+<script>
+     // Enhanced mobile menu functionality
+    const menuIcon = document.getElementById('menuIcon');
+    const menuContent = document.getElementById('menuContent');
+    const menuClose = document.getElementById('menuClose');
+
+    function openMenu() {
+      menuContent.style.display = "block";
+      document.body.style.overflow = "hidden"; // Prevent background scrolling
+      setTimeout(() => {
+        menuContent.classList.add('show');
+      }, 10);
+    }
+
+    function closeMenu() {
+      menuContent.classList.remove('show');
+      document.body.style.overflow = "auto"; // Restore scrolling
+      setTimeout(() => {
+        menuContent.style.display = "none";
+      }, 400);
+    }
+
+    menuIcon.addEventListener('click', openMenu);
+    menuClose.addEventListener('click', closeMenu);
+
+    // Close menu when clicking on a link
+    const menuLinks = menuContent.querySelectorAll('a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Close menu with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menuContent.classList.contains('show')) {
+        closeMenu();
+      }
+    });
+</script>
+
+</body>
+</html>
