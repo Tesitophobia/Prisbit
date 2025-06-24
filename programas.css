@@ -390,6 +390,19 @@ button{
       background: linear-gradient(to top, #5400AD, #130027);
       height: 25em;
     }
+    
+    #double-proyectos.active{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+
+      img{
+        width: 250px;
+        height: 200px;
+        object-fit: cover;
+      }
+    }
 
     .double-practicas img {
       width: 200px;
