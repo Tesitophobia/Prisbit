@@ -91,13 +91,14 @@
     justify-content: center;
     align-items: center;
     background-color: #5400ad9f;
+    text-align: center;
 }
 
 h1{
     color: #ffffff;
   font-size: 64px;
   width: 45%;
-  margin-left: 3em;
+  margin-left: 0em;
   font-weight: medium;
   font-family: Outfit;
 }
