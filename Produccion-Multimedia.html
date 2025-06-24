@@ -241,11 +241,11 @@
   <div class="uniforme-title">Dotación (Uniforme)</div>
   <div class="uniforme-gallery">
     <div class="uniforme-viewer" onwheel="scrollUniforme(this, 'chaqueta')" ontouchstart="startTouch(event, 'chaqueta')" ontouchmove="moveTouch(event, 'chaqueta')">
-      <img id="chaqueta-img" src="assets/img/chaqueta/1.jpg" alt="Chaqueta">
+      <img id="chaqueta-img" src="assets/img/chaqueta/1.png" alt="Chaqueta">
       <div class="indicator" id="chaqueta-indicator"></div>
     </div>
     <div class="uniforme-viewer" onwheel="scrollUniforme(this, 'camiseta')" ontouchstart="startTouch(event, 'camiseta')" ontouchmove="moveTouch(event, 'camiseta')">
-      <img id="camiseta-img" src="assets/img/camiseta/1.jpg" alt="Camiseta">
+      <img id="camiseta-img" src="assets/img/camiseta/1.png" alt="Camiseta">
       <div class="indicator" id="camiseta-indicator"></div>
     </div>
   </div>
@@ -283,7 +283,7 @@
       imgIndices[tipo] += step;
       if (imgIndices[tipo] > total) imgIndices[tipo] = 1;
       if (imgIndices[tipo] < 1) imgIndices[tipo] = total;
-      document.getElementById(`${tipo}-img`).src = `assets/img/${tipo}/${imgIndices[tipo]}.jpg`;
+      document.getElementById(`${tipo}-img`).src = `assets/img/${tipo}/${imgIndices[tipo]}.png`;
       updateIndicators(tipo, total);
     }
 
