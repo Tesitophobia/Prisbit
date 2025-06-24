@@ -232,6 +232,11 @@ nav {
 
     /* Mobile specific menu styles */
     @media (max-width: 768px) {
+
+      .navs {
+  width: 30%;
+}
+
       .menu-content {
         padding: 100px 15px 30px 15px;
       }
@@ -463,6 +468,10 @@ hr {
 }
 
 @media (max-width: 480px) {
+
+        .navs {
+display: none;
+}
     footer main {
         grid-template-columns: 1fr;
         gap: 1.5rem;

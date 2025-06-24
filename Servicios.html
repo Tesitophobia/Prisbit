@@ -3,11 +3,439 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="global.css">
     <title>Servicios</title>
+    <style>
+        body {
+            font-family: 'Outfit';
+        }
+        #services {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .principalCard {
+            background-image: url('assets/fondo-emprender.png');
+            background-size: cover;
+            width: 1000px;
+            height: 600px;
+            border-radius: 38px;
+            display: grid;
+            grid-template-areas: "text nothing nothing"
+                                 "n k l"
+                                 "a b button";
+            grid-template-columns: 22em 25em 15em;
+            grid-template-rows: 7em 22em 8em;
+            margin-top: 2em;
+        }
+        .drop-down {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            grid-area: button;
+            width: 200px;
+            height: 100px;
+            background: linear-gradient(180deg, #9037ff 0%, #562199 100%);
+            border: none;
+            border-radius: 1em;
+            cursor: pointer;
+        }
+        .drop-down img {
+            width: 30px;
+            height: 30px;
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+        .drop-down img.rotated {
+            transform: rotate(180deg);
+        }
+        .first {
+            grid-area: text;
+        }
+        .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .title .first {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            width: 280px;
+            height: 60px;
+            border-radius: 10px;
+            background-color: #9037FF;
+        }
+        .content {
+            margin-top: 2em;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.5s ease-out;
+        }
+        .content.show {
+            max-height: 1000px;
+        }
+        .patrocina {
+            display: grid;
+            grid-template-areas: "a b c"
+                                 "a d e"
+                                 "a f g";
+            grid-template-columns: 30em 1em 30em;
+            grid-template-rows: 15em 1em 15em;
+        }
+        .separation {
+            grid-area: a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+        .separation h1 {
+            height: 2em;
+            width: 100%;
+            background-color: #9037FF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+        .patrocinas {
+            margin-top: 1em;
+            border-radius: 10px;
+            background-color: #562199;
+        }
+        .patrocinar {
+            grid-area: c;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #562199;
+            border-radius: 10px;
+
+            h2{
+                margin-top: 1em;
+            }
+        }
+        .patrocinara {
+            grid-area: g;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #562199;
+            border-radius: 10px;
+                        h2{
+                margin-top: 1em;
+            }
+        }
+        .patrocinara, .patrocinar, .patrocinas {
+            width: 100%;
+            height: 100%;
+        }
+        h1, h2, p {
+            color: white;
+        }
+
+        @media (max-width: 1024px) {
+    .principalCard {
+        width: 90%;
+        height: auto;
+        grid-template-areas:
+            "text"
+            "k"
+            "l"
+            "n"
+            "a"
+            "b"
+            "button";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        padding: 1em;
+        gap: 1em;
+    }
+
+    .drop-down {
+        width: 100%;
+        height: 60px;
+        font-size: 18px;
+    }
+
+    .drop-down img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .title .first {
+        width: 100%;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .patrocina {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    .separation h1 {
+        font-size: 1.2rem;
+    }
+
+    .separation,
+    .patrocinar,
+    .patrocinara {
+        width: 100%;
+        padding: 1em;
+    }
+
+    .patrocinas,
+    .patrocinar,
+    .patrocinara {
+        font-size: 0.95rem;
+    }
+
+    .drop-down {
+        font-size: 16px;
+    }
+
+    h1, h2, p {
+        text-align: center;
+    }
+}
+
+    </style>
 </head>
 <body>
+    <nav>
+        <a href="/">
+            <img class="Logo" src="assets/ProvisionalLogo.svg" alt="Logo Zira" />
+        </a>
+        <span class="navs">
+            <h2>CDA - SENA CHIA</h2>
+        </span>
+        <div class="div">
+            <div class="menu-icon" id="menuIcon">
+                <img src="assets/menu.png" alt="Menú" />
+            </div>
+        </div>
+    </nav>
+    <div class="menu-container">
+        <div class="menu-content" id="menuContent">
+            <button class="menu-close" id="menuClose">×</button>
+            <span>
+                <ul>
+                    <a href="#services-section">Programas</a>
+                    <li><a href="Produccion-Multimedia.html">Producción Multimedia</a></li>
+                    <li><a href="Animacion3D.html">Animación 3D</a></li>
+                    <li><a href="Fotografia.html">Fotografía Y Procesos Digitales</a></li>
+                    <li><a href="ADSO.html">Analisis y Desarrollo de Sistemas de Información</a></li>
+                    <li><a href="Sistemas.html">Sistemas</a></li>
+                    <li><a href="Gestion-Redes.html">Gestión de Redes de Datos</a></li>
+                    <li><a href="Programacion de Software.html">Programación de Software</a></li>
+                </ul>
+                <ul>
+                    <a href="Instructores.html">Instructores</a>
+                    <li><a href="Instructores.html">Producción Multimedia</a></li>
+                    <li><a href="Instructores.html">Animación 3D</a></li>
+                    <li><a href="Instructores.html">Fotografía Y Procesos Digitales</a></li>
+                    <li><a href="Instructores.html">Analisis y Desarrollo de Sistemas de Información</a></li>
+                    <li><a href="Instructores.html">Sistemas</a></li>
+                    <li><a href="Instructores.html">Gestión de Redes de Datos</a></li>
+                    <li><a href="Instructores.html">Programación de Software</a></li>
+                </ul>
+                <ul>
+                    <a href="Servicios.html">Servicios CDA - SENA</a>
+                    <li><a href="Servicios.html">Fondo Emprender</a></li>
+                    <li><a href="Servicios.html">AgroSena</a></li>
+                    <li><a href="Servicios.html">Contrato de Aprendizaje</a></li>
+                </ul>
+                <ul>
+                    <a href="Portfolio.html">Sobre Nosotros</a>
+                    <li><a href="Portfolio.html">Desarrolladores</a></li>
+                </ul>
+            </span>
+        </div>
+    </div>
+    <section id="services">
+        <div class="principalCard">
+            <span class="title">
+                <h1 class="first">Fondo Emprender</h1>
+            </span>
+            <button class="drop-down" onclick="toggleContent('content1', 'icon1', this)">
+                ¡Ver Más! <img id="icon1" src="assets/caret-down.svg" alt="Caret Down Icon">
+            </button>
+        </div>
+        <div class="content" id="content1">
+            <div class="patrocina">
+                <span class="separation">
+                    <h1>¿Como Funciona?</h1>
+                    <span class="patrocinas"><p>aaaaaaaa</p></span>
+                </span>
+                <span class="patrocinar"><h2>¿A Quien Patrocina?</h2> <hr> <p>aaa</p></span>
+                <span class="patrocinara"><h2>¿Como Postularse?</h2> <hr> <p>aaa</p></span>
+            </div>
+        </div>
+        <div class="principalCard">
+            <span class="title">
+                <h1 class="first">AgroSena</h1>
+            </span>
+            <button class="drop-down" onclick="toggleContent('content2', 'icon2', this)">
+                ¡Ver Más! <img id="icon2" src="assets/caret-down.svg" alt="Caret Down Icon">
+            </button>
+        </div>
+        <div class="content" id="content2">
+            <div class="patrocina">
+                <span class="separation">
+                    <h1>¿Como Funciona?</h1>
+                    <span class="patrocinas"><p>bbbbbbbb</p></span>
+                </span>
+                <span class="patrocinar"><h2>¿A Quien Patrocina?</h2> <hr> <p></p></span>
+                <span class="patrocinara"><h2>¿Como Postularse?</h2> <hr> <p></p></span>
+            </div>
+        </div>
+        <div class="principalCard">
+            <span class="title">
+                <h1 class="first">Contrato de Aprendizaje</h1>
+            </span>
+            <button class="drop-down" onclick="toggleContent('content3', 'icon3', this)">
+                ¡Ver Más! <img id="icon3" src="assets/caret-down.svg" alt="Caret Down Icon">
+            </button>
+        </div>
+        <div class="content" id="content3">
+            <div class="patrocina">
+                <span class="separation">
+                    <h1>¿Como Funciona?</h1>
+                    <span class="patrocinas"><p>cccccccc</p></span>
+                </span>
+                <span class="patrocinar"><h2>¿A Quien Patrocina?</h2> <hr> <p></p></span>
+                <span class="patrocinara"><h2>¿Como Postularse?</h2> <hr> <p></p></span>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <main>
+            <ul>
+                <div>SENA</div>
+                <li><a href="">Instalaciones</a></li>
+                <li><a href="">Servicios</a></li>
+            </ul>
+            <ul>
+                <div>Programas</div>
+                <li><a href="#">Producción Multimedia</a></li>
+                <li><a href="#">Animación 3D</a></li>
+                <li><a href="#">Fotografía Y Procesos Digitales</a></li>
+                <li><a href="#">Analisis y Desarrollo de Sistemas de Información</a></li>
+                <li><a href="#">Sistemas</a></li>
+                <li><a href="#">Gestión de Redes de Datos</a></li>
+                <li><a href="#">Programación de Software</a></li>
+            </ul>
+            <ul>
+                <div>Siguenos</div>
+                <ol>
+                    <li><img src="assets/CITYPNG.COMHD-White-Instagram-Round-Logo-Icon-PNG-1600x1200-1 1.svg" alt="Instagram"></li>
+                    <li><img src="assets/tiktok-round-white-icon 1.svg" alt="TikTok"></li>
+                    <li><img src="assets/Behance.svg" alt="Behance"></li>
+                    <li><img src="assets/youtube-app-white-icon 1.svg" alt="Youtube"></li>
+                </ol>
+                <div class="instagram">
+                    <picture class="story"><img src="assets/icon.jpg" alt=""></picture>
+                    <div class="seg">
+                        <div class="fol">
+                            <span>0 Publicaciones</span>
+                            <span>0 Seguidores</span>
+                            <span>0 Seguidos</span>
+                        </div>
+                        <div class="boton-seguir">
+                            <button>Seguir</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tiktok">
+                    <picture class="story-2"><img src="assets/icon.jpg" alt=""></picture>
+                    <div class="seg">
+                        <div class="fol">
+                            <span>0 Publicaciones</span>
+                            <span>0 Seguidores</span>
+                            <span>0 Seguidos</span>
+                        </div>
+                        <div class="boton-seguir">
+                            <button>Seguir</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="behance"></div>
+                <div class="youtube"></div>
+            </ul>
+        </main>
+        <hr>
+        <div class="sponsors">
+            <picture><img src="assets/ProvisionalLogo.svg" alt=""></picture>
+            <picture><img src="assets/picture103 3.svg" alt=""></picture>
+        </div>
+    </footer>
+    <script>
+        // Enhanced mobile menu functionality
+        const menuIcon = document.getElementById('menuIcon');
+        const menuContent = document.getElementById('menuContent');
+        const menuClose = document.getElementById('menuClose');
 
-    
-    
+        function openMenu() {
+            menuContent.style.display = "block";
+            document.body.style.overflow = "hidden";
+            setTimeout(() => {
+                menuContent.classList.add('show');
+            }, 10);
+        }
+
+        function closeMenu() {
+            menuContent.classList.remove('show');
+            document.body.style.overflow = "auto";
+            setTimeout(() => {
+                menuContent.style.display = "none";
+            }, 400);
+        }
+
+        menuIcon.addEventListener('click', openMenu);
+        menuClose.addEventListener('click', closeMenu);
+
+        // Close menu when clicking on a link
+        const menuLinks = menuContent.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // Close menu with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && menuContent.classList.contains('show')) {
+                closeMenu();
+            }
+        });
+
+        // Toggle content visibility and rotate icon
+        function toggleContent(contentId, iconId, button) {
+            const content = document.getElementById(contentId);
+            const icon = document.getElementById(iconId);
+
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+                button.innerHTML = '¡Ver Más! <img id="' + iconId + '" src="assets/caret-down.svg" alt="Caret Down Icon">';
+            } else {
+                content.classList.add('show');
+                button.innerHTML = '¡Ver Menos! <img id="' + iconId + '" src="assets/caret-down.svg" alt="Caret Down Icon" class="rotated">';
+                icon.classList.add('rotated');
+            }
+        }
+    </script>
 </body>
 </html>
+
+
+
