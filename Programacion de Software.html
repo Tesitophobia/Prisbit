@@ -7,19 +7,85 @@
     <title>Programas</title>
 </head>
 <body>
-    <nav>
+      <nav>
     <a href="/">
-      <img class="Logo" src="assets/ProvisionalLogo.png" alt="Logo Zira" />
+      <img class="Logo" src="assets/ProvisionalLogo.svg" alt="Logo Zira" />
     </a>
     <span class="navs">
       <h2>CDA - SENA CHIA</h2>
     </span>
     <div class="div">
-      <div class="menu-icon" id="menuIcon">
-        <img src="assets/menu.png" alt="Menú" />
+      <div class="menu-container">
+        <div class="menu-icon" id="menuIcon">
+          <img src="assets/menu.png" alt="Menú" />
+        </div>
+        
+        <!-- MEGA MENÚ COMPACTO -->
+        <div class="mega-menu" id="megaMenu">
+          <div class="mega-menu-content">
+            
+            <!-- Columna 1: Programas -->
+            <div class="mega-menu-column">
+              <div class="mega-menu-section">
+                <a href="#programas" class="mega-menu-title">Programas</a>
+                <ul class="mega-menu-items">
+                  <li><a href="Produccion-Multimedia.html">Producción Multimedia</a></li>
+                  <li><a href="Animacion3D.html">Animación 3D</a></li>
+                  <li><a href="Fotografia.html">Fotografía Digital</a></li>
+                  <li><a href="ADSO.html">Desarrollo de Software</a></li>
+                  <li><a href="Sistemas.html">Sistemas Informáticos</a></li>
+                  <li><a href="Gestion-Redes.html">Gestión de Redes</a></li>
+                  <li><a href="Programacion de Software.html">Programación</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Columna 2: Instructores -->
+            <div class="mega-menu-column">
+              <div class="mega-menu-section">
+                <a href="Instructores.html" class="mega-menu-title">Instructores</a>
+                <ul class="mega-menu-items instructores">
+                  <li><a href="Instructores.html">Producción Multimedia</a></li>
+                  <li><a href="Instructores.html">Animación 3D</a></li>
+                  <li><a href="Instructores.html">Fotografía Digital</a></li>
+                  <li><a href="Instructores.html">Desarrollo de Software</a></li>
+                  <li><a href="Instructores.html">Sistemas Informáticos</a></li>
+                  <li><a href="Instructores.html">Gestión de Redes</a></li>
+                  <li><a href="Instructores.html">Programación</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Columna 3: SENA -->
+            <div class="mega-menu-column">
+              <div class="mega-menu-section">
+                <a href="#sena" class="mega-menu-title">SENA</a>
+                <ul class="mega-menu-items">
+                  <li><a href="sena.html">Instalaciones</a></li>
+                  <li><a href="Servicios.html">Servicios</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Columna 4: Desarrolladores -->
+            <div class="mega-menu-column">
+              <div class="mega-menu-section">
+                <a href="Portfolio.html" class="mega-menu-title">Desarrolladores</a>
+                <ul class="mega-menu-items">
+                  <li><a href="Portfolio.html">Sobre Nosotros</a></li>
+                  <li><a href="Portfolio.html">Proyectos</a></li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
   </nav>
+
+  <!-- Overlay para cerrar menú -->
+  <div class="menu-overlay" id="menuOverlay"></div>
 
   <section class="banner" id="banner">
     <div class="Program">
@@ -48,44 +114,6 @@
     <button class="sc2-button">Ver Competencias</button>
 <a href="https://oferta.senasofiaplus.edu.co/sofia-oferta/"><button class="sc2-button" style="background-color: #5e00b8;">Inscríbete ¡Aquí!</button></a>  </div>
 </section>
-
-<div class="menu-container">
-  <div class="menu-content" id="menuContent">
-      <button class="menu-close" id="menuClose">×</button>
-      <span>
-          <ul>
-              <a href="#services-section">Programas</a>
-              <li><a href="Produccion-Multimedia.html">Producción Multimedia</a></li>
-              <li><a href="Animacion3D.html">Animación 3D</a></li>
-              <li><a href="Fotografia.html">Fotografía Y Procesos Digitales</a></li>
-              <li><a href="ADSO.html">Analisis y Desarrollo de Sistemas de Información</a></li>
-              <li><a href="Sistemas.html">Sistemas</a></li>
-              <li><a href="Gestion-Redes.html">Gestión de Redes de Datos</a></li>
-              <li><a href="Programacion de Software.html">Programación de Software</a></li>
-          </ul>
-          <ul>
-              <a href="Instructores.html">Instructores</a>
-              <li><a href="Instructores.html">Producción Multimedia</a></li>
-              <li><a href="Instructores.html">Animación 3D</a></li>
-              <li><a href="Instructores.html">Fotografía Y Procesos Digitales</a></li>
-              <li><a href="Instructores.html">Analisis y Desarrollo de Sistemas de Información</a></li>
-              <li><a href="Instructores.html">Sistemas</a></li>
-              <li><a href="Instructores.html">Gestión de Redes de Datos</a></li>
-              <li><a href="Instructores.html">Programación de Software</a></li>
-          </ul>
-          <ul>
-              <a href="Servicios.html">Servicios CDA - SENA</a>
-              <li><a href="Servicios.html">Fondo Emprender</a></li>
-              <li><a href="Servicios.html">AgroSena</a></li>
-              <li><a href="Servicios.html">Contrato de Aprendizaje</a></li>
-          </ul>
-          <ul>
-              <a href="Portfolio.html">Sobre Nosotros</a>
-              <li><a href="Portfolio.html">Desarrolladores</a></li>
-          </ul>
-      </span>
-  </div>
-</div>
 
 <section id="timeline"></section>
 
@@ -823,40 +851,55 @@ button{
 </footer>
 
 <script>
-     // Enhanced mobile menu functionality
+  // JAVASCRIPT PARA EL MEGA MENÚ COMPACTO
     const menuIcon = document.getElementById('menuIcon');
-    const menuContent = document.getElementById('menuContent');
-    const menuClose = document.getElementById('menuClose');
+    const megaMenu = document.getElementById('megaMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
 
-    function openMenu() {
-      menuContent.style.display = "block";
-      document.body.style.overflow = "hidden"; // Prevent background scrolling
-      setTimeout(() => {
-        menuContent.classList.add('show');
-      }, 10);
+    function openMegaMenu() {
+      megaMenu.classList.add('show');
+      menuOverlay.classList.add('show');
     }
 
-    function closeMenu() {
-      menuContent.classList.remove('show');
-      document.body.style.overflow = "auto"; // Restore scrolling
-      setTimeout(() => {
-        menuContent.style.display = "none";
-      }, 400);
+    function closeMegaMenu() {
+      megaMenu.classList.remove('show');
+      menuOverlay.classList.remove('show');
     }
 
-    menuIcon.addEventListener('click', openMenu);
-    menuClose.addEventListener('click', closeMenu);
-
-    // Close menu when clicking on a link
-    const menuLinks = menuContent.querySelectorAll('a');
-    menuLinks.forEach(link => {
-      link.addEventListener('click', closeMenu);
+    // Abrir/cerrar menú al hacer clic en el icono
+    menuIcon.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (megaMenu.classList.contains('show')) {
+        closeMegaMenu();
+      } else {
+        openMegaMenu();
+      }
     });
 
-    // Close menu with Escape key
+    // Cerrar menú al hacer clic en el overlay
+    menuOverlay.addEventListener('click', closeMegaMenu);
+
+    // Cerrar menú al hacer clic en un enlace
+    const menuLinks = megaMenu.querySelectorAll('a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', closeMegaMenu);
+    });
+
+    // Cerrar menú con la tecla Escape
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && menuContent.classList.contains('show')) {
-        closeMenu();
+      if (e.key === 'Escape' && megaMenu.classList.contains('show')) {
+        closeMegaMenu();
+      }
+    });
+
+    // Cerrar menú al hacer scroll
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+      if (megaMenu.classList.contains('show')) {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          closeMegaMenu();
+        }, 100);
       }
     });
 </script>
