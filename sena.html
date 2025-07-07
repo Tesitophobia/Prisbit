@@ -153,6 +153,128 @@
             transform: scale(1.1);
         }
 
+        /* 🔥 ESTILOS PARA EL SCROLL ANIMADO - PANTALLA COMPLETA EN LA SECCIÓN */
+        .scroll-animation-section {
+            position: relative;
+            height: 500vh; /* 🔥 ALTURA LARGA PARA EL SCROLL */
+            background: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .animation-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 10;
+            pointer-events: none;
+            opacity: 0; /* 🔥 INVISIBLE POR DEFECTO */
+            transition: opacity 0.3s ease;
+        }
+
+        .animation-container.active {
+            opacity: 1; /* 🔥 VISIBLE CUANDO ESTÁ ACTIVO */
+        }
+
+        #animationCanvas {
+            width: 100vw;
+            height: 100vh;
+            display: block;
+            background-color: #000;
+            object-fit: cover;
+        }
+
+        .progress-bar {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 600px;
+            height: 4px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+            overflow: hidden;
+            z-index: 20;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            border-radius: 2px;
+            transition: width 0.1s ease-out;
+            width: 0%;
+        }
+
+        .frame-counter {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 20;
+            font-family: "Courier New", monospace;
+            color: white;
+        }
+
+        /* 🔥 RESPONSIVE PARA EL SCROLL ANIMADO */
+        @media (max-width: 768px) {
+            .frame-counter {
+                top: 20px;
+                right: 20px;
+                font-size: 16px;
+                padding: 10px 16px;
+            }
+
+            .progress-bar {
+                bottom: 20px;
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .frame-counter {
+                top: 15px;
+                right: 15px;
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+
+            .progress-bar {
+                bottom: 15px;
+                width: 95%;
+                height: 3px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .frame-counter {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+        }
+
+        @media (max-height: 500px) and (orientation: landscape) {
+            .frame-counter {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+
+            .progress-bar {
+                bottom: 10px;
+                height: 2px;
+            }
+        }
+
         @media (min-width: 768px) {
             .recursos-section {
                 flex-direction: row;
@@ -298,19 +420,18 @@
         </div>
     </section>
 
-    <section id="equipos">
-        <div class="recursos-section">
-            <div class="recursos-column-left">
-                <button onclick="mostrarCarrusel('equipos', 0)">Computadores</button>
-                <button onclick="mostrarCarrusel('equipos', 1)">Cámaras</button>
-                <button onclick="mostrarCarrusel('equipos', 2)">Industrias<br>Creativas</button>
+
+    <!-- 🔥 SECCIÓN DEL SCROLL ANIMADO - PANTALLA COMPLETA CUANDO ESTÁ ACTIVA -->
+    <section class="scroll-animation-section" id="animacion">
+        <div class="animation-container">
+            <canvas id="animationCanvas"></canvas>
+            
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
             </div>
-            <div class="recursos-column-right">
-                <div class="carousel">
-                    <button class="carousel-button prev" onclick="cambiarSlide('equipos', -1)">&#10094;</button>
-                    <div class="carousel-track" id="carousel-track-equipos"></div>
-                    <button class="carousel-button next" onclick="cambiarSlide('equipos', 1)">&#10095;</button>
-                </div>
+            
+            <div class="frame-counter">
+                <span id="currentFrame">01</span> / <span id="totalFrames">34</span>
             </div>
         </div>
     </section>
@@ -475,11 +596,183 @@
         }, 100);
       }
     });
+
+    // 🔥 CÓDIGO DEL SCROLL ANIMADO - PANTALLA COMPLETA EN LA SECCIÓN
+    class ScrollFrameAnimation {
+      constructor() {
+        this.canvas = document.getElementById("animationCanvas")
+        this.progressFill = document.querySelector(".progress-fill")
+        this.currentFrameSpan = document.getElementById("currentFrame")
+        this.totalFramesSpan = document.getElementById("totalFrames")
+        this.section = document.querySelector(".scroll-animation-section")
+        this.container = document.querySelector(".animation-container")
+
+        this.config = {
+          totalFrames: 34,
+          basePath: "assets/scroll/scroll",
+          fileExtension: "webp",
+          startNumber: 1,
+          frameChangeRate: 2,
+        }
+
+        this.images = []
+        this.imagesLoaded = 0
+        this.currentFrame = 0
+
+        this.init()
+      }
+
+      init() {
+        this.preloadImages()
+        this.setupScrollListener()
+        this.updateUI()
+        this.setupCanvas()
+      }
+
+      preloadImages() {
+        console.log("🎬 Cargando animación pantalla completa...")
+
+        for (let i = this.config.startNumber; i <= this.config.totalFrames; i++) {
+          const img = new Image()
+          const frameNumber = i.toString().padStart(2, "0")
+          img.src = `${this.config.basePath}${frameNumber}.${this.config.fileExtension}`
+
+          img.onload = () => {
+            this.imagesLoaded++
+            if (this.imagesLoaded === this.config.totalFrames) {
+              console.log("✅ Animación cargada!")
+              this.showFrame(0)
+            }
+          }
+
+          img.onerror = () => {
+            console.error(`❌ Error cargando: ${img.src}`)
+            this.imagesLoaded++
+          }
+
+          this.images.push(img)
+        }
+      }
+
+      setupCanvas() {
+        this.resizeCanvas()
+        window.addEventListener("resize", () => {
+          this.resizeCanvas()
+          if (this.currentFrame < this.images.length) {
+            this.showFrame(this.currentFrame)
+          }
+        })
+      }
+
+      resizeCanvas() {
+        this.canvas.width = window.innerWidth
+        this.canvas.height = window.innerHeight
+        this.canvas.style.width = window.innerWidth + "px"
+        this.canvas.style.height = window.innerHeight + "px"
+      }
+
+      // 🔥 SCROLL BASADO EN LA SECCIÓN - PANTALLA COMPLETA CUANDO ESTÁ ACTIVA
+      setupScrollListener() {
+        let ticking = false
+
+        const updateAnimation = () => {
+          const sectionRect = this.section.getBoundingClientRect()
+          const windowHeight = window.innerHeight
+          const sectionHeight = this.section.offsetHeight
+          
+          // 🔥 MOSTRAR/OCULTAR ANIMACIÓN SEGÚN LA SECCIÓN
+          if (sectionRect.top <= 0 && sectionRect.bottom >= windowHeight) {
+            // Estamos dentro de la sección - mostrar animación
+            this.container.classList.add('active')
+            
+            // Calcular progreso dentro de la sección
+            const scrollProgress = Math.abs(sectionRect.top) / (sectionHeight - windowHeight)
+            const clampedProgress = Math.max(0, Math.min(1, scrollProgress))
+            
+            const totalScrollUnits = this.config.totalFrames * this.config.frameChangeRate
+            const currentScrollUnit = Math.floor(clampedProgress * totalScrollUnits)
+            const frameIndex = Math.floor(currentScrollUnit / this.config.frameChangeRate)
+            const clampedFrameIndex = Math.max(0, Math.min(frameIndex, this.config.totalFrames - 1))
+
+            if (clampedFrameIndex !== this.currentFrame && this.imagesLoaded === this.config.totalFrames) {
+              this.currentFrame = clampedFrameIndex
+              this.showFrame(clampedFrameIndex)
+              this.updateUI()
+            }
+          } else {
+            // Fuera de la sección - ocultar animación
+            this.container.classList.remove('active')
+          }
+
+          ticking = false
+        }
+
+        window.addEventListener("scroll", () => {
+          if (!ticking) {
+            requestAnimationFrame(updateAnimation)
+            ticking = true
+          }
+        })
+      }
+
+      showFrame(frameIndex) {
+        if (frameIndex >= 0 && frameIndex < this.images.length && this.images[frameIndex].complete) {
+          const img = this.images[frameIndex]
+          const ctx = this.canvas.getContext("2d")
+
+          ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+
+          const canvasWidth = this.canvas.width
+          const canvasHeight = this.canvas.height
+          const imageWidth = img.naturalWidth
+          const imageHeight = img.naturalHeight
+
+          const canvasAspectRatio = canvasWidth / canvasHeight
+          const imageAspectRatio = imageWidth / imageHeight
+
+          let drawWidth, drawHeight, drawX, drawY
+
+          if (imageAspectRatio > canvasAspectRatio) {
+            drawHeight = canvasHeight
+            drawWidth = canvasHeight * imageAspectRatio
+            drawX = (canvasWidth - drawWidth) / 2
+            drawY = 0
+          } else {
+            drawWidth = canvasWidth
+            drawHeight = canvasWidth / imageAspectRatio
+            drawX = 0
+            drawY = (canvasHeight - drawHeight) / 2
+          }
+
+          ctx.drawImage(img, drawX, drawY, drawWidth, drawHeight)
+        }
+      }
+
+      updateUI() {
+        if (this.currentFrameSpan) {
+          const frameNumber = (this.currentFrame + 1).toString().padStart(2, "0")
+          this.currentFrameSpan.textContent = frameNumber
+        }
+
+        if (this.totalFramesSpan) {
+          this.totalFramesSpan.textContent = this.config.totalFrames
+        }
+
+        if (this.progressFill) {
+          const progress = ((this.currentFrame + 1) / this.config.totalFrames) * 100
+          this.progressFill.style.width = progress + "%"
+        }
+      }
+    }
+
+    // 🔥 INICIALIZAR EL SCROLL ANIMADO
+    document.addEventListener("DOMContentLoaded", () => {
+      if (document.getElementById("animationCanvas")) {
+        console.log("🎬 Iniciando scroll animado pantalla completa...")
+        new ScrollFrameAnimation()
+      }
+    })
     </script>
-
-
-  
 
 </body>
 </html>
-
