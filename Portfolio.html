@@ -42,7 +42,6 @@
               </div>
             </div>
 
-           
 
             <!-- Columna 3: SENA -->
             <div class="mega-menu-column">
@@ -341,119 +340,183 @@
     </div>
 </footer>
 <style>
-    body{
+    body {
         background-color: black;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
     }
-    .conten-port{
-                display: flex;
-                width: 100%;
-                justify-content: center;
-                margin-block: 8em;
+
+    .conten-port {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-block: 2em;
+        padding: 1em;
     }
+
+    .info-portaf {
+        background-color: rgb(67, 25, 105);
+        border-radius: 20px;
+        color: white;
+        padding: 1.5em;
+        width: 100%;
+        max-width: 900px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1em;
+    }
+
+    .dedicacion ul {
+        list-style: none;
+        padding-left: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .dedicacion li {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 5px 10px;
+        border-radius: 8px;
+        font-size: 14px;
+    }
+
+    .nombre-insta {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .nombre-insta a {
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+    }
+
+    .descrip-portaf p {
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    .progrmas h2 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .img-pogram {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .tamaños{
+        margin-top: 1px ;
+        width: 40px !important;
+        height: 40px !important;
+        object-fit: contain;
+    }
+
+    .img-pogram img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+        border-radius: 8px;
+    }
+
+    .boton-portaf {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 1em;
+    }
+
+    .boton-portaf button {
+        width: 100%;
+        max-width: 289px;
+        height: 50px;
+        font-size: 16px;
+        border-radius: 20px;
+        border: none;
+        background-color: blueviolet;
+        color: white;
+        cursor: pointer;
+    }
+
+    .img-portaf {
+        width: 100%;
+        max-width: 400px;
+        filter: drop-shadow(4px -5px 16px blueviolet);
+        mask-image: linear-gradient(black 88%, transparent);
+        margin-bottom: 1em;
+        object-fit: contain;
+    }
+
     
-        .info-portaf{
-            background-color: rgb(67, 25, 105);
-            height: 500px;
-            width: 70%;
-            display: grid;
-            border-radius: 20px;
+    @media (min-width: 768px) {
+        .info-portaf {
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr 1fr;
-            gap: 1em;
-            justify-content: center;
-            align-items: center;
-            grid-template-areas: 
-            "dedi nombre"
-            "info info"
-            "programs boton";
+            grid-template-areas:
+                "dedi nombre"
+                "info info"
+                "programs boton";
+            padding: 2em;
         }
-        .dedicacion{
+
+        .dedicacion {
             grid-area: dedi;
-        margin-left: 7em;
-        font-size: 17px;
-            ul{
-                li{
-                    color: white;
-                }
-            }
         }
-    
-        .nombre-insta{
+
+        .nombre-insta {
             grid-area: nombre;
-            display: flex;
             align-items: flex-end;
-            flex-direction: column;
-            color: white;
-            font-size: 50px;
-            padding-right: 1em;
-            span{
-                a{
-                    text-decoration: none;
-                    color: white;
-                    font-size: 35px;
-                }
-            }
         }
-        .descrip-portaf{
+
+        .descrip-portaf {
             grid-area: info;
-            width: 100%;
-            display: flex;
-            justify-content: flex-end;
-                    p{
-                        color: white;
-                        font-size: 27px;
-                        width: 70%;
-    
-                
-            }
         }
-        .progrmas{
+
+        .progrmas {
             grid-area: programs;
-            color: white;
-            margin-left: 12em;
-            div{
-                display: flex;
-                align-items: center;
-                margin-left: 10px;
-                justify-content: center;
-            }
+            margin-top: 2em;
         }
-        .boton-portaf{
+
+        .boton-portaf {
             grid-area: boton;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: flex-end;
-            flex-direction: column;
             align-items: flex-end;
-            button{
-                    padding-inline: 10px;
-                    display: flex;
-                    width: 289px;
-                    height: 72px;
-                    font-size: 18px;
-                    align-items: center;
-                    border-radius: 20px 0px 0px 0px ;
-                    border: solid rgba(255, 0, 0, 0);
-                    background-color: blueviolet;
-                    color: white;
-    
-            }
         }
-       .img-pogram{ 
-            display: flex;
-            justify-content: flex-end;
-        img{
-            width: 48px;
-        }    
+
+        .img-portaf {
+            transform: translateX(-40px);
         }
-        .img-portaf{
-            width: 400px;
-            filter: drop-shadow(25px -5px 16px blueviolet);        
+    }
+
+    @media (min-width: 1024px) {
+        .info-portaf {
+            height: 500px;
+            width: 63%;
         }
-        .tamaños{
-          width: 69px !important ;
+
+        .nombre-insta {
+            font-size: 30px;
         }
+
+        .nombre-insta a {
+            font-size: 24px;
+        }
+
+        .descrip-portaf p {
+            font-size: 20px;
+        }
+
+        .img-pogram img {
+            width: 50px;
+            height: 50px;
+        }
+    }
     </style>
 
     <script>

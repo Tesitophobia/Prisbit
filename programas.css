@@ -486,5 +486,233 @@ button{
   overscroll-behavior: contain;
 }
 
+        .team-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #6b46c1;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #8b5cf6, #7c3aed);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+            transition: all 0.3s ease;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Centrar solo la quinta card */
+        .card:nth-child(5) {
+            grid-column: 2 / 4;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            border-radius: 20px;
+            pointer-events: none;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.4);
+        }
+
+        .card-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 1.2rem;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-image {
+            transform: scale(1.1);
+        }
+
+        .card-name {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            line-height: 1.4;
+            position: relative;
+            z-index: 1;
+        }
 
 
+        .interview-section {
+            max-width: 1200px;
+            margin: 5rem auto 0;
+            padding: 0 1rem;
+        }
+
+        .interview-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #6b46c1;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 1920px;
+            margin: 0 auto;
+            padding-bottom: 56.25%; 
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .cards-container {
+                grid-template-columns: repeat(3, 1fr);
+                max-width: 800px;
+            }
+            
+            .card:nth-child(5) {
+                grid-column: 2 / 3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .cards-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+                max-width: 600px;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .card:nth-child(5) {
+                grid-column: 1 / -1;
+                max-width: 280px;
+                justify-self: center;
+            }
+
+            .card-image {
+                width: 90px;
+                height: 90px;
+            }
+
+            
+            .interview-title {
+                font-size: 2rem;
+            }
+
+            .video-container {
+                border-radius: 15px;
+            }
+
+            .video-container iframe {
+                border-radius: 15px;
+            }
+            
+        }
+
+        @media (max-width: 480px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+                max-width: 320px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .card:nth-child(5) {
+                grid-column: 1;
+                max-width: none;
+            }
+
+            .card-image {
+                width: 85px;
+                height: 85px;
+            }
+
+            .interview-title {
+                font-size: 1.8rem;
+            }
+
+            .video-container {
+                border-radius: 10px;
+            }
+
+            .video-container iframe {
+                border-radius: 10px;
+            }
+        }
+
+        /* Animación de entrada */
+        .card {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
