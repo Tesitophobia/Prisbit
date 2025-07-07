@@ -478,7 +478,23 @@ hr {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
+  nav{
+    height: 8vh;
+    gap:14.8em;
+  }
+
+
+
+  .menu-icon img{
+    width: 4em;
+  }
+
+.Logo{
+  width: 80px;
+  height: 85px;
+  margin-left: 8px;
+}
   footer main {
     grid-template-columns: 1fr;
     gap: 1.5rem;
