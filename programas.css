@@ -670,6 +670,7 @@ button{
             
         }
 
+
         @media (max-width: 500px) {
 
           #scroll-button {
@@ -734,6 +735,12 @@ button{
   align-items: center;
 }
 
+        @media (max-height: 670px) {
+
+          #scroll-button {
+            bottom: 295px !important;
+          }
+        }
 .container {
   max-width: 1200px;
   margin: 0 auto;
