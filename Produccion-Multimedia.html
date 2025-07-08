@@ -548,6 +548,297 @@ document.addEventListener("DOMContentLoaded", () => {
   </script>
 </section>
 
+<style>
+  /* Contenedor del mouse */
+        .mouse-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out 1.5s forwards;
+        }
+
+        /* El mouse */
+        .mouse {
+            width: 70px;
+            height: 110px;
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            border-radius: 35px;
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        /* La ruedita del mouse - RESALTADA CON ANIMACIÓN LARGA */
+        .scroll-wheel {
+            width: 24px;
+            height: 35px;
+            background: #fff;
+            border-radius: 12px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            
+            /* Efectos de resaltado con animación larga */
+            box-shadow: 
+                0 0 25px rgba(255, 255, 255, 0.9),
+                0 0 50px rgba(255, 255, 255, 0.7),
+                0 0 75px rgba(255, 255, 255, 0.5),
+                inset 0 0 10px rgba(0, 0, 0, 0.1);
+            
+            /* Animación que dura mucho más tiempo */
+            animation: wheelGlowLong 4s ease-in-out infinite;
+        }
+
+        /* Líneas decorativas en la ruedita */
+        .scroll-wheel::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 14px;
+            height: 2px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 1px;
+        }
+
+        .scroll-wheel::after {
+            content: '';
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 14px;
+            height: 2px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 1px;
+        }
+
+        /* Botones del mouse (sutiles) */
+        .mouse-button {
+            position: absolute;
+            width: 28px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 14px 14px 0 0;
+        }
+
+        .left-button {
+            top: 3px;
+            left: 3px;
+        }
+
+        .right-button {
+            top: 3px;
+            right: 3px;
+        }
+
+        /* Texto explicativo con animación larga */
+        .instruction-text {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: textPulseLong 3s ease-in-out infinite;
+        }
+
+        /* Flecha apuntando a la ruedita con animación larga */
+        .arrow {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 15px solid rgba(255, 255, 255, 0.9);
+            animation: arrowBounceLong 3s ease-in-out infinite;
+        }
+
+        /* Círculos decorativos alrededor del mouse */
+        .decoration-circle {
+            position: absolute;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: circleExpand 5s ease-out infinite;
+        }
+
+        .circle-1 {
+            width: 120px;
+            height: 120px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 0s;
+        }
+
+        .circle-2 {
+            width: 160px;
+            height: 160px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 1s;
+        }
+
+        .circle-3 {
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 2s;
+        }
+
+        /* ANIMACIONES LARGAS */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes wheelGlowLong {
+            0%, 100% {
+                box-shadow: 
+                    0 0 25px rgba(255, 255, 255, 0.9),
+                    0 0 50px rgba(255, 255, 255, 0.7),
+                    0 0 75px rgba(255, 255, 255, 0.5),
+                    inset 0 0 10px rgba(0, 0, 0, 0.1);
+                transform: translate(-50%, -50%) scale(1);
+            }
+            25% {
+                box-shadow: 
+                    0 0 35px rgba(255, 255, 255, 1),
+                    0 0 70px rgba(255, 255, 255, 0.9),
+                    0 0 100px rgba(255, 255, 255, 0.7),
+                    inset 0 0 15px rgba(0, 0, 0, 0.1);
+                transform: translate(-50%, -50%) scale(1.08);
+            }
+            50% {
+                box-shadow: 
+                    0 0 40px rgba(255, 255, 255, 1),
+                    0 0 80px rgba(255, 255, 255, 0.9),
+                    0 0 120px rgba(255, 255, 255, 0.7),
+                    inset 0 0 20px rgba(0, 0, 0, 0.1);
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+            75% {
+                box-shadow: 
+                    0 0 35px rgba(255, 255, 255, 1),
+                    0 0 70px rgba(255, 255, 255, 0.9),
+                    0 0 100px rgba(255, 255, 255, 0.7),
+                    inset 0 0 15px rgba(0, 0, 0, 0.1);
+                transform: translate(-50%, -50%) scale(1.08);
+            }
+        }
+
+        @keyframes textPulseLong {
+            0%, 100% {
+                opacity: 0.7;
+                transform: scale(1);
+            }
+            33% {
+                opacity: 0.9;
+                transform: scale(1.02);
+            }
+            66% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes arrowBounceLong {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+                opacity: 0.8;
+            }
+            25% {
+                transform: translateX(-50%) translateY(-8px);
+                opacity: 1;
+            }
+            50% {
+                transform: translateX(-50%) translateY(-12px);
+                opacity: 1;
+            }
+            75% {
+                transform: translateX(-50%) translateY(-8px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes circleExpand {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            20% {
+                opacity: 0.6;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            80% {
+                opacity: 0.3;
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1.4);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mouse {
+                width: 60px;
+                height: 95px;
+            }
+            
+            .scroll-wheel {
+                width: 20px;
+                height: 30px;
+            }
+            
+            .content h2 {
+                font-size: 2rem;
+            }
+            
+            .instruction-text {
+                font-size: 1rem;
+                letter-spacing: 1px;
+            }
+        }
+
+        .scroll-section{
+          margin-top: 2em;
+          margin-bottom: 2em;
+        }
+    </style>
+
+    <section class="scroll-section">
+        <div class="mouse-container">
+            <!-- Círculos decorativos -->
+            <div class="decoration-circle circle-1"></div>
+            <div class="decoration-circle circle-2"></div>
+            <div class="decoration-circle circle-3"></div>
+            
+            <div class="mouse">
+                <div class="arrow"></div>
+                <div class="mouse-button left-button"></div>
+                <div class="mouse-button right-button"></div>
+                <div class="scroll-wheel"></div>
+            </div>
+            <div class="instruction-text">Usa la ruedita</div>
+        </div>
+    </section>
 <footer>
     <main>
         <ul>

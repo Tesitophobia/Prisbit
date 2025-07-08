@@ -411,6 +411,11 @@ hr {
 
 /* Enhanced Mobile Footer Styles */
 @media (max-width: 1024px) {
+
+    .navs{
+    display:none;
+  }
+  
   footer main {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
