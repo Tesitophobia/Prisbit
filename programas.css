@@ -72,7 +72,7 @@
   width: 50px;
   height: 50px;
   position: absolute;
-  bottom: 250px;
+  bottom: 180px;
   left: 50%;
   transform: translateX(-50%);
   background-color: #9037ff;
@@ -668,7 +668,11 @@ button{
             
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 500px) {
+
+          #scroll-button {
+            bottom: 250px;
+          }
             .cards-container {
                 grid-template-columns: 1fr;
                 max-width: 320px;

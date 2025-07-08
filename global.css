@@ -271,7 +271,7 @@ nav {
 
 @media (max-width: 500px) {
   nav{
-    gap:7em
+    gap:6em
   }
 
   .navs {
