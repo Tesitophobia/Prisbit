@@ -797,6 +797,14 @@ button{
   
 }
 
+@media screen and (max-height: 690px) {
+
+      #sc2{
+        height: 110vh;
+      }
+  
+}
+
 
 @media (max-height: 760px) {
   .competencias-grid{
