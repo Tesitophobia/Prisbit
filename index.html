@@ -68,6 +68,55 @@
 </head>
 <body>
 
+  <div id="video-loader">
+        <video id="loader-video" autoplay muted playsinline>
+            <source src="assets/Loadermp4.webm" type="video/webm">
+            <!-- Fallback para navegadores que no soporten el video -->
+            <div style="color: white; font-size: 24px;">Cargando...</div>
+        </video>
+    </div>
+
+    <script>
+        // JavaScript para controlar el loader
+        document.addEventListener('DOMContentLoaded', function() {
+            const loader = document.getElementById('video-loader');
+            const video = document.getElementById('loader-video');
+            
+            // Función para ocultar el loader
+            function hideLoader() {
+                loader.classList.add('hide');
+                
+                // Remover el loader del DOM después de la animación
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 800); // 800ms coincide con la duración de la transición CSS
+            }
+            
+            // Opción 1: Ocultar después de exactamente 2 segundos
+            setTimeout(hideLoader, 2000);
+            
+            // Opción 2: Si quieres que se oculte cuando termine el video
+            // (descomenta estas líneas y comenta el setTimeout de arriba)
+            /*
+            video.addEventListener('ended', hideLoader);
+            */
+            
+            // Opción 3: Combinar ambas - lo que ocurra primero
+            /*
+            let loaderHidden = false;
+            
+            const hideOnce = () => {
+                if (!loaderHidden) {
+                    loaderHidden = true;
+                    hideLoader();
+                }
+            };
+            
+            setTimeout(hideOnce, 2000);
+            video.addEventListener('ended', hideOnce);
+            */
+        });
+    </script>
   <nav>
     <a href="/index.html">
       <img class="Logo" src="assets/ProvisionalLogo.svg" alt="Logo Zira" />
