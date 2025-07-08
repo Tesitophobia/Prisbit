@@ -337,7 +337,6 @@
                   <li><a href="ADSO.html">Desarrollo de Software</a></li>
                   <li><a href="Sistemas.html">Sistemas Informáticos</a></li>
                   <li><a href="Gestion-Redes.html">Gestión de Redes</a></li>
-                  <li><a href="Programacion de Software.html">Programación</a></li>
                 </ul>
               </div>
             </div>
@@ -360,11 +359,9 @@
                 <a href="Portfolio.html" class="mega-menu-title">Desarrolladores</a>
                 <ul class="mega-menu-items">
                   <li><a href="Portfolio.html">Sobre Nosotros</a></li>
-                  <li><a href="Portfolio.html">Proyectos</a></li>
                 </ul>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -375,24 +372,422 @@
 
   <!-- Overlay para cerrar menú -->
   <div class="menu-overlay" id="menuOverlay"></div>
+  <style>
 
-    <section id="ambientes">
-        <div class="recursos-section">
-            <div class="recursos-column-left">
-                <button onclick="mostrarCarrusel('ambientes', 0)">Ambientes<br>de Formación</button>
-                <button onclick="mostrarCarrusel('ambientes', 1)">Instalaciones<br>del SENA</button>
-                <button onclick="mostrarCarrusel('ambientes', 2)">Industrias<br>Creativas</button>
-            </div>
-            <div class="recursos-column-right">
-                <div class="carousel">
-                    <button class="carousel-button prev" onclick="cambiarSlide('ambientes', -1)">&#10094;</button>
-                    <div class="carousel-track" id="carousel-track-ambientes"></div>
-                    <button class="carousel-button next" onclick="cambiarSlide('ambientes', 1)">&#10095;</button>
-                </div>
-            </div>
+        .video-principal {
+            text-align: center;
+            width: 100%;
+            max-width: 800px; /* Ancho máximo para la sección */
+            margin: 0 auto; /* Centrar horizontalmente */
+        }
+
+        .video-principal h1 {
+            margin-bottom: 20px;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-container::before {
+            content: "";
+            display: block;
+            padding-top: 56.25%; /* Ratio 16:9 para mantener la proporcionalidad */
+        }
+
+</style>
+
+<section class="video-principal">
+        <h1>Video Promocional Industrias Creativas</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/3kA3XUn4y2w?si=B7N0yPZVLkW9kWWw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </section>
 
+        <section class="carrousel">
+        <h2>Instalaciones</h2>
+        
+        <div class="carousel-container">
+            <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-slide">
+                    <img src="assets/ambientes/V7A8426.webp" alt="Instalación 1">
+                    <div class="slide-content">
+                        <h3>Salones</h3>
+                        <p>Espacios versátiles equipados para reuniones, conferencias y eventos especiales.</p>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide">
+                    <img src="assets/ambientes/Ambientes3.webp" alt="Instalación 2">
+                    <div class="slide-content">
+                        <h3>Computadores</h3>
+                        <p>Equipos de última generación para garantizar un rendimiento óptimo en todas las tareas.</p>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide">
+                    <img src="assets/ambientes/Creativas1.webp" alt="Instalación 3">
+                    <div class="slide-content">
+                        <h3>Industrias Creativas</h3>
+                        <p>Un espacio innovador para el desarrollo y la experimentación con nuevas tecnologías.</p>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide">
+                    <img src="assets/ambientes/V7A8384.webp" alt="Instalación 4">
+                    <div class="slide-content">
+                        <h3>Impresoras 3D</h3>
+                        <p>Tecnología avanzada para la creación de prototipos y modelos tridimensionales.</p>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide">
+                    <img src="assets/ambientes/Instalaciones1.webp" alt="Instalación 5">
+                    <div class="slide-content">
+                      <h3>Pasillos</h3>
+                        <p>Amplios y bien iluminados para facilitar el movimiento dentro de nuestras instalaciones.</p>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <button class="carousel-btn prev" id="prevBtn">‹</button>
+            <button class="carousel-btn next" id="nextBtn">›</button>
+        </div>
+        
+        <div class="carousel-indicators" id="indicators">
+            <span class="indicator active" data-slide="0"></span>
+            <span class="indicator" data-slide="1"></span>
+            <span class="indicator" data-slide="2"></span>
+            <span class="indicator" data-slide="3"></span>
+            <span class="indicator" data-slide="4"></span>
+        </div>
+    </section>
+
+
+<style>
+
+    .carrousel {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .carrousel h2 {
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 2.5rem;
+            color: #333;
+background: linear-gradient(135deg, #5400ad 0%, #764ba2 100%);
+            color: white;
+            margin: 0;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-slide .slide-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            padding: 40px 30px 30px;
+        }
+
+        .slide-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .slide-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #333;
+            transition: all 0.3s ease;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-btn:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-btn.prev {
+            left: 20px;
+        }
+
+        .carousel-btn.next {
+            right: 20px;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 30px;
+            background: #1e1e1e;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: #667eea;
+            transform: scale(1.2);
+        }
+
+        .indicator:hover {
+            background: #764ba2;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .carrousel h2 {
+                font-size: 2rem;
+                padding: 20px 15px;
+            }
+
+            .carousel-container {
+                height: 300px;
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .carousel-btn.prev {
+                left: 10px;
+            }
+
+            .carousel-btn.next {
+                right: 10px;
+            }
+
+            .slide-content {
+                padding: 20px 15px 15px;
+            }
+
+            .slide-content h3 {
+                font-size: 1.4rem;
+            }
+
+            .slide-content p {
+                font-size: 0.9rem;
+            }
+
+            .carousel-indicators {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .carrousel h2 {
+                font-size: 1.6rem;
+                padding: 15px 10px;
+            }
+
+            .carousel-container {
+                height: 250px;
+            }
+
+            .carousel-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+
+            .slide-content h3 {
+                font-size: 1.2rem;
+            }
+
+            .slide-content p {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+
+<script>
+        class Carousel {
+            constructor() {
+                this.track = document.getElementById('carouselTrack');
+                this.slides = document.querySelectorAll('.carousel-slide');
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                this.indicators = document.querySelectorAll('.indicator');
+                
+                this.currentSlide = 0;
+                this.totalSlides = this.slides.length;
+                
+                this.init();
+            }
+            
+            init() {
+                // Event listeners para botones
+                this.prevBtn.addEventListener('click', () => this.prevSlide());
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+                
+                // Event listeners para indicadores
+                this.indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => this.goToSlide(index));
+                });
+                
+                // Auto-play (opcional)
+                this.startAutoPlay();
+                
+                // Pausar auto-play al hacer hover
+                const container = document.querySelector('.carousel-container');
+                container.addEventListener('mouseenter', () => this.stopAutoPlay());
+                container.addEventListener('mouseleave', () => this.startAutoPlay());
+                
+                // Soporte para gestos táctiles
+                this.addTouchSupport();
+            }
+            
+            updateCarousel() {
+                const translateX = -this.currentSlide * 100;
+                this.track.style.transform = `translateX(${translateX}%)`;
+                
+                // Actualizar indicadores
+                this.indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === this.currentSlide);
+                });
+            }
+            
+            nextSlide() {
+                this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+                this.updateCarousel();
+            }
+            
+            prevSlide() {
+                this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+                this.updateCarousel();
+            }
+            
+            goToSlide(slideIndex) {
+                this.currentSlide = slideIndex;
+                this.updateCarousel();
+            }
+            
+            startAutoPlay() {
+                this.autoPlayInterval = setInterval(() => {
+                    this.nextSlide();
+                }, 4000); // Cambia cada 4 segundos
+            }
+            
+            stopAutoPlay() {
+                if (this.autoPlayInterval) {
+                    clearInterval(this.autoPlayInterval);
+                }
+            }
+            
+            addTouchSupport() {
+                let startX = 0;
+                let endX = 0;
+                
+                this.track.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                });
+                
+                this.track.addEventListener('touchend', (e) => {
+                    endX = e.changedTouches[0].clientX;
+                    this.handleSwipe();
+                });
+                
+                this.handleSwipe = () => {
+                    const swipeThreshold = 50;
+                    const diff = startX - endX;
+                    
+                    if (Math.abs(diff) > swipeThreshold) {
+                        if (diff > 0) {
+                            this.nextSlide();
+                        } else {
+                            this.prevSlide();
+                        }
+                    }
+                };
+            }
+        }
+        
+        // Inicializar el carrusel cuando se carga la página
+        document.addEventListener('DOMContentLoaded', () => {
+            new Carousel();
+        });
+        
+        // Soporte para teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                document.getElementById('prevBtn').click();
+            } else if (e.key === 'ArrowRight') {
+                document.getElementById('nextBtn').click();
+            }
+        });
+    </script>
+  
     <section id="Programas">
         <div class="Programas">
             <h3>Programas que puedes aprender a manejar</h3>
@@ -443,10 +838,9 @@
         <ul>
             <div>Siguenos</div>
             <ol>
-             <li><img src="assets/CITYPNG.COMHD-White-Instagram-Round-Logo-Icon-PNG-1600x1200-1 1.svg" alt="Instagram"></li>
-             <li><img src="assets/tiktok-round-white-icon 1.svg" alt="TikTok"></li>
-             <li><img src="assets/Behance.svg" alt="Behance"></li>
-             <li><img src="assets/youtube-app-white-icon 1.svg" alt="Youtube"></li>
+             <a href="https://instagram.com/prisbit.co" target="_blank"><li><img src="assets/CITYPNG.COMHD-White-Instagram-Round-Logo-Icon-PNG-1600x1200-1 1.svg" alt="Instagram"></li></a>
+             <a href="https://tiktok.com/@prisbit" target="_blank""><li><img src="assets/tiktok-round-white-icon 1.svg" alt="TikTok"></li></a>
+             <a href="https://youtube.com/@prisbit" target="_blank""><li><img src="assets/youtube-app-white-icon 1.svg" alt="Youtube"></li></a>
             </ol>
             <div class="instagram">
                 <picture class="story"><img src="assets/icon.jpg" alt=""></picture>
@@ -491,46 +885,6 @@
 </footer>
 
     <script>
-        const carouseles = {
-            ambientes: [
-                ["assets/ambientes/Ambientes1.webp", "assets/ambientes/Ambientes2.webp", "assets/ambientes/Ambientes3.webp", "assets/ambientes/Ambientes4.webp", "assets/ambientes/Ambientes5.jpg"],
-                ["assets/ambientes/Instalaciones1.webp", "assets/ambientes/Instalaciones2.webp", "assets/ambientes/Instalaciones3.jpg", "assets/ambientes/Instalaciones4.jpg", "assets/ambientes/Instalaciones5.jpg"],
-                ["assets/ambientes/Creativas1.webp", "assets/ambientes/Creativas2.webp", "assets/ambientes/Creativas3.jpg", "assets/ambientes/Creativas4.jpg", "assets/ambientes/Creativas5.jpg"]
-            ],
-            equipos: [
-                ["assets/equipos/Computadores1.webp", "assets/equipos/Computadores2.webp", "assets/equipos/Computadores3.jpg", "assets/equipos/Computadores4.jpg", "assets/equipos/Computadores5.jpg"],
-                ["assets/equipos/Camaras1.webp", "assets/equipos/Camaras2.webp", "assets/equipos/Camaras3.jpg", "assets/equipos/Camaras4.jpg", "assets/equipos/Camaras5.jpg"],
-                ["assets/equipos/Industrias1.webp", "assets/equipos/Industrias2.webp", "assets/equipos/Industrias3.jpg", "assets/equipos/Industrias4.jpg", "assets/equipos/Industrias5.jpg"]
-            ]
-        };
-
-        const indices = { ambientes: 0, equipos: 0 };
-        let carruselesVisibles = { ambientes: 0, equipos: 0 };
-
-        function actualizarCarrusel(seccion) {
-            const track = document.getElementById(`carousel-track-${seccion}`);
-            const lista = carouseles[seccion][carruselesVisibles[seccion]];
-            track.innerHTML = lista.map(src => `<div class='carousel-slide'><img src='${src}' alt='Slide'></div>`).join("");
-            track.style.transform = `translateX(-${indices[seccion] * 100}%)`;
-        }
-
-        function cambiarSlide(seccion, direccion) {
-            const total = carouseles[seccion][carruselesVisibles[seccion]].length;
-            indices[seccion] = (indices[seccion] + direccion + total) % total;
-            const track = document.getElementById(`carousel-track-${seccion}`);
-            track.style.transform = `translateX(-${indices[seccion] * 100}%)`;
-        }
-
-        function mostrarCarrusel(seccion, cual) {
-            carruselesVisibles[seccion] = cual;
-            indices[seccion] = 0;
-            actualizarCarrusel(seccion);
-        }
-
-        window.onload = () => {
-            actualizarCarrusel("ambientes");
-            actualizarCarrusel("equipos");
-        };
 
         // JAVASCRIPT PARA EL MEGA MENÚ COMPACTO
     const menuIcon = document.getElementById('menuIcon');
