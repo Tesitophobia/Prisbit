@@ -797,10 +797,10 @@ button{
   
 }
 
-@media screen and (max-height: 690px) {
+@media screen and (max-height: 815px) {
 
       #sc2{
-        height: 110vh;
+        height: 100vh;
       }
   
 }
