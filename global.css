@@ -220,7 +220,7 @@ nav {
   }
 
   .navs {
-    width: 30%;
+    display: none;
   }
 
   .mega-menu {
@@ -415,7 +415,7 @@ hr {
     .navs{
     display:none;
   }
-  
+
   footer main {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
