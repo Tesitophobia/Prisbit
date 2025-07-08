@@ -203,6 +203,10 @@ button{
 
     @media (max-width: 768px) {
 
+        #scroll-button{
+        bottom: 290px !important;
+        }
+
         #banner {
             height: 50vh;
             width: 100%;
@@ -669,7 +673,7 @@ button{
         @media (max-width: 500px) {
 
           #scroll-button {
-            bottom: 250px !important;
+            bottom: 300px !important;
           }
             .cards-container {
                 grid-template-columns: 1fr;
@@ -938,7 +942,22 @@ button{
   }
 }
 
+@media (max-width: 385px) {
+
+  #scroll-button{
+    bottom: 305px !important;
+  }
+
+    #sc2{
+        height: 60em;
+      }
+  }
+
 @media (max-width: 360px) {
+
+    #sc2{
+        height: 54em;
+      }
   .competencias-grid {
     gap: 0.6rem;
   }
