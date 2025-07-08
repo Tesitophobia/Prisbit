@@ -559,7 +559,7 @@ hr {
         }
 
         #loader-video {
-          z-index: 999999999;
+            z-index: 999999999;
             width: 1920px;
             height: 1080px;
             max-width: 800px;
