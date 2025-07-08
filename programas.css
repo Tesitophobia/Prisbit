@@ -789,6 +789,19 @@ button{
   margin-right: auto;
 }
 
+
+@media (max-height: 760px) {
+  .competencias-grid{
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  }
+
+  #novena{
+    display: none;
+  }
+         
+}
+
 .competencia-card {
   background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
   border-radius: 16px;
